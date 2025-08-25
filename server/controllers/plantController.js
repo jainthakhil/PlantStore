@@ -1,4 +1,4 @@
-import Plant from "../models/plant.js";
+import Plant from "../models/Plant.js";
 
 // @desc Get all plants (with search & filter)
 export const getPlants = async (req, res) => {
