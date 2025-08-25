@@ -1,6 +1,6 @@
 # Ignore all node_modules (client + server)
 node_modules/
-
+seeds/
 # Environment files
 .env
 .env.*

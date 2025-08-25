@@ -385,34 +385,48 @@ import React from 'react';
 import styled from 'styled-components';
 
 const Card = ({ plant }) => {
-    return (
-        <StyledWrapper>
-            <div className="card">
-                <div className="card__shine" />
-                <div className="card__glow" />
-                <div className="card__content">
-                    {/* <div className="card__badge">NEW</div> */}
-                    <div style={{ bgColor: '#a78bfa' }} className="card__image" />
-                    <div className="card__text">
-                        <p className="card__title">{plant.name}</p>
-                        <p className="card__description">{plant.categories.join(", ")}</p>
-                    </div>
-                    <div className="card__footer">
-                        <div className="card__price">Rs. {plant.price}</div>
-                        <div className="card__button">
-                            <p className={` font-semibold ${plant.available ? "text-green-600" : "text-red-600"}`}>
-                                {plant.available ? "Available" : "Out of Stock"}
-                            </p>
+  console.log(plant);
 
-                            {/* <svg height={16} width={16} viewBox="0 0 24 24">
+  return (
+    <StyledWrapper>
+      <div className="card">
+        <div className="card__shine" />
+        <div className="card__glow" />
+        <div className="card__content">
+          {/* <div className="card__badge">NEW</div> */}
+
+          {/* <div style={{ bgColor: '#a78bfa' }} className="card__image object-contain">
+            <img className='object-contain' src={plant.imageUrl} alt="" />
+          </div> */}
+          <div className="card__image flex items-center justify-center h-48 w-full rounded-lg overflow-hidden">
+            <img
+              className="object-cover h-full w-full"
+              src={plant.imageUrl}
+              alt={plant.name}
+            />
+          </div>
+
+
+          <div className="card__text">
+            <p className="card__title">{plant.name}</p>
+            <p className="card__description">{plant.categories.join(", ")}</p>
+          </div>
+          <div className="card__footer">
+            <div className="card__price">Rs. {plant.price}</div>
+            <div className="card__button">
+              <p className={` font-semibold ${plant.available ? "text-green-600" : "text-red-600"}`}>
+                {plant.available ? "Available" : "Out of Stock"}
+              </p>
+
+              {/* <svg height={16} width={16} viewBox="0 0 24 24">
                                 <path strokeWidth={2} stroke="currentColor" d="M4 12H20M12 4V20" fill="currentColor" />
                             </svg> */}
-                        </div>
-                    </div>
-                </div>
             </div>
-        </StyledWrapper>
-    );
+          </div>
+        </div>
+      </div>
+    </StyledWrapper>
+  );
 }
 
 const StyledWrapper = styled.div`

@@ -25,9 +25,9 @@ export const getPlants = async (req, res) => {
 // @desc Add new plant (Admin feature)
 export const addPlant = async (req, res) => {
     try {
-        const { name, price, categories, available } = req.body;
+        const { name, price, categories, available, imageUrl } = req.body;
 
-        if (!name || !price || !categories.length) {
+        if (!name || !price || !categories.length || !imageUrl) {
             return res.status(400).json({ message: "All fields are required" });
         }
 
@@ -36,6 +36,7 @@ export const addPlant = async (req, res) => {
             price,
             categories,
             available,
+            imageUrl,
         });
 
         await newPlant.save();
